@@ -26,4 +26,20 @@ public class ProfileService {
 	public Profile createProfile(Profile profile) {
 	    return profileRepository.save(profile);
 	}
+	
+	// ProfileService.java
+	public Profile updateProfile(ObjectId id, Profile updatedProfile) {
+	    // Verifica se il profilo esiste
+	    Profile existingProfile = profileRepository.findById(id)
+	        .orElseThrow(() -> new RuntimeException("Profilo non trovato con ID: " + id));
+	    
+	    // Aggiorna solo i campi modificabili
+	    existingProfile.setName(updatedProfile.getName());
+	    existingProfile.setSurname(updatedProfile.getSurname());
+	    existingProfile.setCodiceFiscale(updatedProfile.getCodiceFiscale());
+	    existingProfile.setBirthDate(updatedProfile.getBirthDate());
+	    existingProfile.setSex(updatedProfile.getSex());
+	    
+	    return profileRepository.save(existingProfile);
+	}
 }

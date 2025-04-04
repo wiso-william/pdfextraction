@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +41,13 @@ public class ProfileController {
 	@PostMapping
 	public ResponseEntity<Profile> createProfile(@RequestBody Profile profile) {
 	    return new ResponseEntity<>(profileService.createProfile(profile), HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Profile> updateProfile(
+	    @PathVariable ObjectId id,
+	    @RequestBody Profile updatedProfile
+	) {
+	    return ResponseEntity.ok(profileService.updateProfile(id, updatedProfile));
 	}
 }
