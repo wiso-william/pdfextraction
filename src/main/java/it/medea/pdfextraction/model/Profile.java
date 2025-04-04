@@ -29,7 +29,9 @@ public class Profile {
     
     private Integer age;  // Età (se disponibile)
     
-    private Integer statura; // in cm
+    private Integer height; // in cm
     
-    private Integer peso; // in kg
+    private Integer weight; // in kg
+    
+    private String sex; // F o M
 }
