@@ -7,17 +7,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Document(collection = "md_dati_estratti")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@CrossOrigin(origins = "*")
 public class Profile {
 	@Id
-	private ObjectId id;
+	private String id;
 	
     private String name;
     
@@ -25,13 +26,13 @@ public class Profile {
     
     private String codiceFiscale;
     
-    private Date birthDate;  // Data di nascita (se disponibile)
+    private Date birthDate;  
     
-    private Integer age;  // Età (se disponibile)
+    private Integer age;  
     
     private Integer height; // in cm
     
     private Integer weight; // in kg
     
-    private String sex; // F o M
+    private String sex; // F o M o O
 }
