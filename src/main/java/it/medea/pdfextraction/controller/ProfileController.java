@@ -23,7 +23,7 @@ import it.medea.pdfextraction.model.ProfilePatchDTO;
 
 @RestController
 @RequestMapping("/api/v1/profiles")
-@CrossOrigin(origins = "http://localhost:5173") 
+@CrossOrigin(origins = "*") 
 public class ProfileController {
 	@Autowired
 	private ProfileService profileService;
